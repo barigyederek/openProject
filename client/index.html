@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+
+
+    <link 
+        rel="stylesheet" 
+        href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+   
+    <link rel="stylesheet" href="client/drawControl/node_modules/leaflet-draw/dist/leaflet.draw.css">
+
+
+
+    <script
+    src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+</script>
+
+<script src="client/drawControl/node_modules/leaflet-draw/dist/leaflet.draw.js"></script>
+
+
+
+
+
+
+
+
+
+
+    <!-- leaflet draw js -->
+    <script src="client/drawControl/node_modules/leaflet-draw/dist/leaflet.draw.js"></script>
+
+    <!-- leaflet draw css -->
+    <link rel="stylesheet" href="/client/drawControl/node_modules/leaflet-draw/dist/leaflet.draw.css">
+    
+    <!-- bootstrap table css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--  Leaflet CSS file for openstreetmap -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Boxicons CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+<!-- firebzse scripts -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="firebase.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    
+    <script
+        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+   
+<script src="client/drawControl/node_modules/leaflet-draw/dist/leaflet.draw.js"></script>
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class="bx bxl-c-plus-plus"></i>
+        <span class="logo_name">IGMMS</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-refresh"></i>
+            <span class="links_name" id="refresh" ">Refresh
+              <!-- <button " (click)="test()">test</button> -->
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-area"></i>
+            <span class="links_name">Zones</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-pie-chart-alt-2"></i>
+            <span class="links_name">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-coin-stack"></i>
+            <span class="links_name">Devices</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="links_name">Preferences</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="#">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <section class="home-section">
+      <nav>
+        <div class="sidebar-button">
+          <i class="bx bx-menu sidebarBtn"></i>
+          <span class="dashboard">Interface</span>
+        </div>
+        <!-- <div class="search-box">
+          <input type="text" placeholder="Search..." />
+          <i class="bx bx-search"></i>
+        </div> -->
+        <div class="profile-details">
+          <!--<img src="images/profile.jpg" alt="">-->
+          <span class="admin_name">Barigye Derek</span>
+          <i class="bx bx-chevron-down"></i>
+        </div>
+      </nav>
+
+    <!-- box div starts here -->
+      <div class="home-content" >
+        <div class="overview-boxes">
+          <!-- small box -->
+          <div class="box">
+            <div class="right-side" id="boxdiv">
+              <!-- <div class="box-topic">Now tracking</div>
+              <div class="number">186</div>
+              <div class="indicator">
+                <i class="bx bx-down-arrow-alt down"></i>
+                <span class="text">Down From Today</span>
+              </div> -->
+              
+            </div>
+            <i class='bx bxl-periscope'></i>
+           
+          </div>
+
+          
+        </div>
+ <!-- map div starts here  -->
+        <div class="sales-boxes">
+          <div class="recent-sales box">
+            <div class="title">Tracking Map</div>
+            <div id="mapdiv" class="sales-details" >
+            </div>
+          </div>
+
+           <!-- device list div starts here -->
+          <div class="top-sales box">
+            <div class="title">Device list</div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name
+                  <th scope="col">ID</th>
+                  <th scope="col">Model</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      };
+    </script>
+
+<script>
+
+
+
+  // initialize openmap and add the map to the map div
+       
+  var myMap = L.map("mapdiv").setView([1.373333, 32.290275], 8);
+ 
+ var leaflet = L.tileLayer(
+    "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+    {
+      attribution:
+        'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: "mapbox/streets-v11",
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken:
+        "pk.eyJ1IjoiYmFyaWd5ZSIsImEiOiJja3U2dm5xdDIwbGljMnJwYWc4c2Zla2ZkIn0.16NYykB-7nWhdbTN7n3Ueg",
+    }
+    
+  )
+   leaflet.addTo(myMap);
+
+ 
+
+  // Topography layer
+  var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+maxZoom: 17,
+attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+}); 
+// OpenTopoMap.addTo(myMap);
+
+// ESRI world map layer
+var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+}); 
+// Esri_WorldStreetMap.addTo(myMap);
+
+var diffMapLayers ={
+"World Map":Esri_WorldStreetMap,
+"Topography Map":OpenTopoMap,
+"Leaflet Map":leaflet,
+// "openstreet":openstreetmap
+};
+
+ L.control.layers(diffMapLayers).addTo(myMap);
+
+
+        var drawnItems = new L.FeatureGroup();
+        myMap.addLayer(drawnItems);
+
+        var drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        myMap.addControl(drawControl);
+
+        myMap.on('draw:created', function (e) {
+            var type = e.layerType,
+                layer = e.layer;
+            drawnItems.addLayer(layer);
+        });
+
+
+   
+</script>
+  </body>
+</html>
